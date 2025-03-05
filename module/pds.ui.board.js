@@ -14,7 +14,7 @@ export default new class Board {
     }
     Init() {
         try {
-            $.get("/fakedata/boarddata.json", (data) => {
+            $.get("fakedata/boarddata.json", (data) => {
                 const hasContainer = $(document).find('div').hasClass('container');
 
                 if (!hasContainer) {
