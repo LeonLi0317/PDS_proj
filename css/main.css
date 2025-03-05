@@ -1,84 +1,98 @@
-
 /* 背景 */
 body {
-    background-color: aqua;
+    background-color: #f4f4f4; /* 輕灰色背景讓畫面更柔和 */
     margin: 0;
     padding: 0;
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* 避免初始顯示出滾動條 */
 }
+
 .container {
     margin-top: 1em;
     max-width: 100%;
+    height: 100%;
+    padding: 0 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden; /* 防止外層多餘捲軸 */
 }
 
-/* 標題 */
+/* Title 區塊 */
 .board-title {
-    height: 16.666%;
-    /* 1/6 畫面高度 */
-    background-color: lightcoral;
+    background-color: #ff725e; /* 鮮豔的紅色 */
     text-align: center;
     padding: 20px;
-    font-size: 2rem;
+    font-size: 2.5rem; /* 更大字體 */
     font-weight: bold;
+    border-radius: 20px; /* 圓角 */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
+    color: white; /* 字體顏色 */
+    letter-spacing: 3px; /* 字間距增加 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 字體陰影 */
 }
 
-/* board-item 設定 */
-.board-item {
-    border: 1px solid #ccc;
-    background-color: #fff;
-    border-radius: 5px;
-    padding: 5px;
-    text-align: center;
-    transition: transform 0.3s ease;
-    /* 動畫 */
-}
-
-/* RWD */
+/* 按鈕區塊 */
 .row {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    gap: 20px; /* 按鈕間距 */
+    flex-grow: 1; 
+    overflow-y: auto; /* 超出才滾動 */
+    padding-bottom: 1em; /* 預留點底部空間 */
 }
 
 .col-md-4 {
-    width: 33%;
-    /* 每個 div 佔 30% 寬度 */
-    margin-bottom: 20px;
-    box-sizing: border-box;
+    flex: 0 1 calc(33.333% - 20px); /* 三個一排扣掉間距 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* 设置 board-item 高度 */
-.col-md-4 .board-item {
-    height: calc(43vh - 1rem);
-    /* 高度為 38vh 減去 margin */
+.board-item {
+    width: 100%;
+    height: calc(43vh - 40px); /* 讓按鈕高度均勻分布 */
+    border: 1px solid #ddd;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6); /* 漸層背景 */
+    border-radius: 20px; /* 圓角 */
+    padding: 20px;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    letter-spacing: 2px; 
+    color: #333;
 }
 
-/* 在小屏幕下调整布局 */
+.board-item:hover {
+    transform: translateY(-5px) scale(1.03); /* 懸停浮動感 */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(145deg, #f1f1f1, #ffffff); /* 漸層反轉 */
+    border-color: rgb(120, 249, 56);
+}
+
 @media (max-width: 768px) {
     .col-md-4 {
-        width: 48%;
-        /* 在小視窗上，每行 2 個 div */
+        flex: 0 1 calc(50% - 20px); /* 小螢幕變兩個一排 */
     }
 
-    .col-md-4 .board-item {
-        height: calc(50vh - 10px);
-        /* 每個 div 高度調整為畫面的 1/2 */
+    .board-item {
+        height: calc(40vh - 40px);
     }
 }
 
 @media (max-width: 576px) {
     .col-md-4 {
-        width: 100%;
-        /* 在超小視窗上，每行 1 個 div */
+        flex: 0 1 100%; /* 單排顯示 */
     }
 
-    .col-md-4 .board-item {
-        height: calc(100vh - 10px);
-        /* 每個 div 高度為畫面高度 */
+    .board-item {
+        height: calc(50vh - 40px);
     }
-}
-
-.board-item:hover {
-    border: rgb(120, 249, 56);
-    transform: scale(1.05);
 }
