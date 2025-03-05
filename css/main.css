@@ -1,0 +1,83 @@
+
+/* 背景 */
+body {
+    background-color: aqua;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    margin-top: 1em;
+}
+
+/* 標題 */
+.board-title {
+    height: 16.666%;
+    /* 1/6 畫面高度 */
+    background-color: lightcoral;
+    text-align: center;
+    padding: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* menu-item 設定 */
+.board-item {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    /* 動畫 */
+}
+
+/* RWD */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.col-md-4 {
+    width: 33%;
+    /* 每個 div 佔 30% 寬度 */
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+/* 设置 menu-item 高度 */
+.col-md-4 .board-item {
+    height: calc(38vh - 1rem);
+    /* 高度為 38vh 減去 margin */
+}
+
+/* 在小屏幕下调整布局 */
+@media (max-width: 768px) {
+    .col-md-4 {
+        width: 48%;
+        /* 在小視窗上，每行 2 個 div */
+    }
+
+    .col-md-4 .board-item {
+        height: calc(50vh - 10px);
+        /* 每個 div 高度調整為畫面的 1/2 */
+    }
+}
+
+@media (max-width: 576px) {
+    .col-md-4 {
+        width: 100%;
+        /* 在超小視窗上，每行 1 個 div */
+    }
+
+    .col-md-4 .board-item {
+        height: calc(100vh - 10px);
+        /* 每個 div 高度為畫面高度 */
+    }
+}
+
+.board-item:hover {
+    border: rgb(120, 249, 56);
+    transform: scale(1.05);
+}
