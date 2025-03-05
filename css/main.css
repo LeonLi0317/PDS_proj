@@ -7,6 +7,7 @@ body {
 }
 .container {
     margin-top: 1em;
+    max-width: 100%;
 }
 
 /* 標題 */
@@ -21,7 +22,7 @@ body {
     margin-bottom: 20px;
 }
 
-/* menu-item 設定 */
+/* board-item 設定 */
 .board-item {
     border: 1px solid #ccc;
     background-color: #fff;
@@ -46,9 +47,9 @@ body {
     box-sizing: border-box;
 }
 
-/* 设置 menu-item 高度 */
+/* 设置 board-item 高度 */
 .col-md-4 .board-item {
-    height: calc(38vh - 1rem);
+    height: calc(43vh - 1rem);
     /* 高度為 38vh 減去 margin */
 }
 
