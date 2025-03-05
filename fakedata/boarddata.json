@@ -24,6 +24,10 @@
         {
             "sort": 6,
             "name": "Item 6"
+        },
+        {
+            "sort": 7,
+            "name": "Item 7"
         }
     ]    
 }
