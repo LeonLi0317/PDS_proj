@@ -68,6 +68,10 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     letter-spacing: 2px; 
     color: #333;
+    -webkit-touch-callout: none; /* 禁止 iOS 長按選單 */
+    -webkit-user-select: none;   /* 禁止選取文字 */
+    user-select: none;
+    touch-action: none;          /* 禁止縮放/滾動手勢 */
 }
 
 .board-item:hover {
@@ -75,6 +79,12 @@ body {
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
     background: linear-gradient(145deg, #f1f1f1, #ffffff); /* 漸層反轉 */
     border-color: rgb(120, 249, 56);
+}
+
+.ui-sortable-helper {
+    opacity: 0.8; /* 拖曳時透明度 */
+    transform: scale(1.05); /* 拖曳時縮放效果 */
+    transition: transform 0.3s ease;
 }
 
 @media (max-width: 768px) {
