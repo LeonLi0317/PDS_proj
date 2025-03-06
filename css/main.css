@@ -74,6 +74,7 @@ body {
     -webkit-touch-callout: none; /* 禁止 iOS 長按選單 */
     -webkit-user-select: none;   /* 禁止選取文字 */
     user-select: none;
+    touch-action: none;          /* 禁止縮放/滾動手勢 */
 }
 
 .board-item:hover {
