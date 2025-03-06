@@ -74,19 +74,21 @@ body {
     -webkit-touch-callout: none; /* 禁止 iOS 長按選單 */
     -webkit-user-select: none;   /* 禁止選取文字 */
     user-select: none;
+    transition: transform 0.2s ease;
 }
 
 .board-item:hover {
-    transform: translateY(-5px) scale(1.03); /* 懸停浮動感 */
+    /*transform: translateY(-5px) scale(1.03); /* 懸停浮動感 */
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
-    background: linear-gradient(145deg, #f1f1f1, #ffffff); /* 漸層反轉 */
+    /*background: linear-gradient(145deg, #f1f1f1, #ffffff); /* 漸層反轉 */
     border-color: rgb(120, 249, 56);
 }
-
-.ui-sortable-helper {
-    opacity: 0.6; /* 拖曳時透明度 */
-    transform: scale(1.03); /* 拖曳時縮放效果 */
-    transition: transform 0.3s ease;
+.sortable-ghost {
+    opacity: 0.6;
+}
+.sortable-chosen {
+    transform: scale(1.1);
+    background-color: #f3f3f3;
 }
 
 @media (max-width: 768px) {
