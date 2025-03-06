@@ -1,6 +1,6 @@
 {
-    "name": "非數位倉儲管理App",
-    "short_name": "和潤倉管",
+    "name": "非數位倉儲管理WebApp",
+    "short_name": "和潤倉管家",
     "start_url": "./index.html",
     "display": "standalone",
     "background_color": "#ffffff",

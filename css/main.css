@@ -45,6 +45,8 @@ body {
     flex-grow: 1; 
     overflow-y: auto; /* 超出才滾動 */
     padding-bottom: 1em; /* 預留點底部空間 */
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
 .board-block {
@@ -52,6 +54,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 20px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .board-item {
@@ -85,10 +90,36 @@ body {
 }
 .sortable-ghost {
     opacity: 0.6;
+    transition: transform 0.2s ease, opacity 0.2s ease;
 }
 .sortable-chosen {
     transform: scale(1.1);
     background-color: #f3f3f3;
+}
+
+.drag-finish {
+    animation: bounceFade 0.3s ease-out;
+    box-shadow: 0 0 20px rgba(120, 249, 56, 0.7); /* 綠色光暈 */
+}
+
+@keyframes bounceFade {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(0.9);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes vibrate {
+    0% { transform: scale(1.1) translateX(-1px); }
+    100% { transform: scale(1.1) translateX(1px); }
 }
 
 @media (max-width: 768px) {
