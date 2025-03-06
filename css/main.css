@@ -47,7 +47,7 @@ body {
     padding-bottom: 1em; /* 預留點底部空間 */
 }
 
-.col-md-4 {
+.board-block {
     flex: 0 1 calc(33.333% - 20px); /* 三個一排扣掉間距 */
     display: flex;
     justify-content: center;
@@ -92,7 +92,7 @@ body {
 }
 
 @media (max-width: 768px) {
-    .col-md-4 {
+    .board-block {
         flex: 0 1 calc(50% - 20px); /* 小螢幕變兩個一排 */
     }
 
@@ -103,7 +103,7 @@ body {
 }
 
 @media (max-width: 576px) {
-    .col-md-4 {
+    .board-block {
         flex: 0 1 100%; /* 單排顯示 */
     }
 
