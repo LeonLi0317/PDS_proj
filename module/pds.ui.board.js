@@ -48,9 +48,22 @@ export default new class Board {
 
         //排序功能
         if (typeof this.#AllowSort === 'boolean' && this.#AllowSort) {
+            let isDragging = false;  // 用來追蹤是否正在拖曳
+
+            // 監控觸控事件，避免誤觸影響頁面滑動
+            $("#board .board-item").on("touchstart mousedown", function (e) {
+                if (e.type === "touchstart" || e.which === 1) { // 只響應觸控與左鍵
+                    isDragging = false;  // 初始化為沒有拖曳
+                }
+            }).on("touchend mouseup", function (e) {
+                isDragging = false; // 拖曳結束
+            });
+
+            // 使用 sortable 插件
             $("#board").sortable({
                 start(event, ui) {
                     ui.placeholder.height(ui.item.height()); // 讓占位符有正確高度
+                    isDragging = true; // 開始拖曳
                 },
                 stop(event, ui) {
                     console.count("拖拉結束");
@@ -71,6 +84,9 @@ export default new class Board {
                 distance: 2, // 滑動距離大於 5px 才啟用拖曳
                 forcePlaceholderSize: true,
                 tolerance: "pointer",
+                scroll: true,  // 啟用滾動
+                scrollSensitivity: 50, // 當拖曳接近容器邊緣時開始滾動
+                scrollSpeed: 15, // 滾動速度，調整為合適值
                 start: function (event, ui) {
                     if (navigator.vibrate) {
                         navigator.vibrate(50); // 啟動震動

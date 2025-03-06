@@ -74,7 +74,6 @@ body {
     -webkit-touch-callout: none; /* 禁止 iOS 長按選單 */
     -webkit-user-select: none;   /* 禁止選取文字 */
     user-select: none;
-    touch-action: none;          /* 禁止縮放/滾動手勢 */
 }
 
 .board-item:hover {
@@ -85,7 +84,7 @@ body {
 }
 
 .ui-sortable-helper {
-    opacity: 0.8; /* 拖曳時透明度 */
+    opacity: 0.6; /* 拖曳時透明度 */
     transform: scale(1.03); /* 拖曳時縮放效果 */
     transition: transform 0.3s ease;
 }
