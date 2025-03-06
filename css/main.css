@@ -86,17 +86,17 @@ body {
 
 .ui-sortable-helper {
     opacity: 0.8; /* 拖曳時透明度 */
-    transform: scale(1.05); /* 拖曳時縮放效果 */
+    transform: scale(1.03); /* 拖曳時縮放效果 */
     transition: transform 0.3s ease;
 }
 
 @media (max-width: 768px) {
     .col-md-4 {
-        width: 100%; /* 手機畫面一個 column */
+        flex: 0 1 calc(50% - 20px); /* 小螢幕變兩個一排 */
     }
 
     .board-item {
-        aspect-ratio: 3.5 / 1; /* 手機畫面比例更長 */
+        height: calc(40vh - 40px);
         font-size: 1.6rem; /* 小螢幕字體縮小 */
     }
 }
