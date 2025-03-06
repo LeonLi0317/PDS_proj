@@ -1,33 +1,84 @@
 {
     "board-title":"Title Area",
-    "board-list":[
+    "mboard-list":[
         {
+            "mSeq":"01",
             "sort": 1,
             "name": "Item 1"
         },
         {
+            "mSeq":"02",
             "sort": 2,
             "name": "Item 2"
         },
         {
+            "mSeq":"03",
             "sort": 3,
             "name": "Item 3"
         },
         {
+            "mSeq":"04",
             "sort": 4,
             "name": "Item 4"
         },
         {
+            "mSeq":"05",
             "sort": 5,
             "name": "Item 5"
         },
         {
+            "mSeq":"06",
             "sort": 6,
             "name": "Item 6"
         },
         {
+            "mSeq":"07",
             "sort": 7,
             "name": "Item 7"
         }
-    ]    
+    ],
+    "subboard-list":[
+        {
+            "sort": 1,
+            "mSeq":"01",
+            "subSeq":"01",
+            "name": "[Item 1]-01"
+        },
+        {
+            "sort": 2,
+            "mSeq":"01",
+            "subSeq":"02",
+            "name": "[Item 1]-02"
+        },
+        {
+            "sort": 3,
+            "mSeq":"01",
+            "subSeq":"03",
+            "name": "[Item 1]-03"
+        },
+        {
+            "sort": 1,
+            "mSeq":"02",
+            "subSeq":"01",
+            "name": "[Item 2]-01"
+        },
+        {
+            "sort": 2,
+            "mSeq":"02",
+            "subSeq":"02",
+            "name": "[Item 2]-02"
+        },
+        {
+            "sort": 1,
+            "mSeq":"03",
+            "subSeq":"01",
+            "name": "[Item 3]-01"
+        },
+        {
+            "sort": 2,
+            "mSeq":"03",
+            "subSeq":"02",
+            "name": "[Item 3]-02"
+        }
+    ]
 }

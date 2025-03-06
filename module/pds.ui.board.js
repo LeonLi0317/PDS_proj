@@ -21,7 +21,7 @@ export default new class Board {
     }
 
     RenderMenu(data) {
-        $('#board').html(data["board-list"]
+        $('#board').html(data["mboard-list"]
             .map(item => `
                 <div class="col-md-4 board-block">
                     <div class="board-item" sort="${item.sort}">${item.name}</div>
