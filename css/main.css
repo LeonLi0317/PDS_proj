@@ -58,54 +58,56 @@ body {
     width: 100%;
     height: calc(43vh - 40px); /* 讓按鈕高度均勻分布 */
     border: 1px solid #ddd;
-    background: linear-gradient(145deg, #ffffff, #e6e6e6);
-    border-radius: 20px;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6); /* 漸層背景 */
+    border-radius: 20px; /* 圓角 */
     padding: 20px;
     text-align: center;
+    display: flex; /* 文字垂直置中 */
+    justify-content: center;
+    align-items: center;
     font-size: 1.8rem;
     font-weight: bold;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    letter-spacing: 2px;
+    letter-spacing: 2px; 
     color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
+    -webkit-touch-callout: none; /* 禁止 iOS 長按選單 */
+    -webkit-user-select: none;   /* 禁止選取文字 */
     user-select: none;
-    touch-action: none;
+    touch-action: none;          /* 禁止縮放/滾動手勢 */
 }
 
 .board-item:hover {
-    transform: translateY(-5px) scale(1.03);
+    transform: translateY(-5px) scale(1.03); /* 懸停浮動感 */
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
-    background: linear-gradient(145deg, #f1f1f1, #ffffff);
+    background: linear-gradient(145deg, #f1f1f1, #ffffff); /* 漸層反轉 */
     border-color: rgb(120, 249, 56);
 }
 
 .ui-sortable-helper {
-    opacity: 0.8;
-    transform: scale(1.05);
+    opacity: 0.8; /* 拖曳時透明度 */
+    transform: scale(1.05); /* 拖曳時縮放效果 */
     transition: transform 0.3s ease;
 }
 
 @media (max-width: 768px) {
     .col-md-4 {
-        flex: 0 1 calc(50% - 20px); /* 小螢幕變兩個一排 */
+        width: 100%; /* 手機畫面一個 column */
     }
 
     .board-item {
-        height: calc(40vh - 40px);
+        aspect-ratio: 3.5 / 1; /* 手機畫面比例更長 */
+        font-size: 1.6rem; /* 小螢幕字體縮小 */
     }
 }
 
-@media (max-width: 576px) and (orientation: portrait) {
+@media (max-width: 576px) {
     .col-md-4 {
-        flex: 0 1 calc(50% - 20px); /* 僅直式畫面兩個一排 */
+        flex: 0 1 100%; /* 單排顯示 */
     }
 
     .board-item {
-        height: calc(40vh - 40px);
+        aspect-ratio: 4 / 1; /* 比例更細長 */
+        font-size: 1.4rem; /* 更小螢幕字體縮小 */
     }
 }
