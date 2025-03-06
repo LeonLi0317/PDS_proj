@@ -46,38 +46,45 @@ export default new class Board {
 
         $('#board').html(board); // 一次性塞入畫面
 
-        //排序功能
         if (typeof this.#AllowSort === 'boolean' && this.#AllowSort) {
+            let timer;
+
+            $("#board .board-item").on("touchstart mousedown", function (e) {
+                if (e.type === "touchstart" || e.which === 1) { // 只響應觸控與左鍵
+                    timer = setTimeout(() => {
+                        navigator.vibrate?.(200); // 震動提示
+                        $("#board").sortable("enable"); // 啟用拖曳
+                        $(this).trigger("mousedown"); // 重新觸發拖曳事件
+                    }, 1000); // 長按 1 秒後啟用
+                }
+            }).on("touchend mouseup mouseleave", function () {
+                clearTimeout(timer);
+                $("#board").sortable("disable"); // 離開時關閉拖曳
+            });
+
             $("#board").sortable({
                 start(event, ui) {
-                    ui.placeholder.height(ui.item.height()); // 讓占位符有正確高度
+                    ui.placeholder.height(ui.item.height());
                 },
                 stop(event, ui) {
                     console.count("拖拉結束");
 
-                    // 重新根據當前順序更新 sort 屬性
                     $("#board .board-item").each(function (index) {
                         $(this).attr("sort", index + 1);
                     });
 
-                    // 將新的排序資料轉為 JSON
                     let sortedData = $("#board .board-item").map(function () {
                         return { menuname: $(this).text(), sort: $(this).attr("sort") };
                     }).get();
 
                     console.log("更新排序 JSON:", JSON.stringify(sortedData));
                 },
-                delay: 1000, // 長按 1 秒啟動拖曳
-                distance: 5, // 滑動距離大於 5px 才啟用拖曳
                 forcePlaceholderSize: true,
-                tolerance: "pointer",
-                start: function (event, ui) {
-                    if (navigator.vibrate) {
-                        navigator.vibrate(50); // 啟動震動
-                    }
-                    ui.placeholder.height(ui.item.height());
-                }
+                tolerance: "pointer"
             });
+
+            // 初始禁用拖曳，需長按後啟用
+            $("#board").sortable("disable");
         }
     }
 }
