@@ -49,7 +49,7 @@ export default new class Board {
 
             let sortable = new Sortable(boardElement, {
                 animation: 150,
-                delay: 1000,
+                //delay: 1000,
                 delayOnTouchOnly: true,
                 touchStartThreshold: 2,
                 draggable: ".board-block", // 外層 div 照舊沒問題
