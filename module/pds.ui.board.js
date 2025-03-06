@@ -48,13 +48,11 @@ export default new class Board {
             const boardElement = document.getElementById('board');
 
             let sortable = new Sortable(boardElement, {
-                handle: ".board-item", // 只在按鈕區塊才能拖動
                 animation: 150,
                 delay: 300,
                 delayOnTouchOnly: true,
                 touchStartThreshold: 2,
                 draggable: ".board-block",
-                //forceFallback: true, // 這一行是關鍵 🔥 強制模擬拖曳，避開 draggable="false"
                 onEnd: function (evt) {
                     console.count("拖拉結束");
             
