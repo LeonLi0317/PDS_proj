@@ -77,8 +77,6 @@ body {
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
     border-color: rgb(120, 249, 56);
 }
-
-}
 .sortable-ghost {
     opacity: 0.6;
     transition: transform 0.2s ease, opacity 0.2s ease;
@@ -90,7 +88,6 @@ body {
 
 .drag-finish {
     animation: bounceFade 0.3s ease-out;
-    box-shadow: 0 0 20px rgba(120, 249, 56, 0.7); /* 綠色光暈 */
 }
 /* 排列方式 (手機、平板、桌機) */
 .board-block.col-12 { flex: 0 1 100%; }
