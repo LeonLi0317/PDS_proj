@@ -35,6 +35,11 @@
             "mSeq":"07",
             "sort": 7,
             "name": "Item 7"
+        },
+        {
+            "mSeq":"08",
+            "sort": 8,
+            "name": "Item 8"
         }
     ],
     "subboard-list":[

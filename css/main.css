@@ -1,13 +1,13 @@
 /* 背景 */
 body {
-    background-color: #f4f4f4; /* 輕灰色背景讓畫面更柔和 */
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    height: 100vh; 
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* 避免初始顯示出滾動條 */
+    overflow: hidden;
 }
 
 .container {
@@ -18,75 +18,66 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow: hidden; /* 防止外層多餘捲軸 */
+    overflow: hidden;
 }
 
-/* Title 區塊 */
 .board-title {
-    background-color: #ff725e; /* 鮮豔的紅色 */
+    background-color: #ff725e;
     text-align: center;
     padding: 20px;
-    font-size: 2.5rem; /* 更大字體 */
+    font-size: 2.5rem;
     font-weight: bold;
-    border-radius: 20px; /* 圓角 */
+    border-radius: 20px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
-    color: white; /* 字體顏色 */
-    letter-spacing: 3px; /* 字間距增加 */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 字體陰影 */
+    color: white;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* 按鈕區塊 */
 .row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px; /* 按鈕間距 */
-    flex-grow: 1; 
-    overflow-y: auto; /* 超出才滾動 */
-    padding-bottom: 1em; /* 預留點底部空間 */
+    justify-content: flex-start; /* 🚨 這行是關鍵 */
+    gap: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-bottom: 1em;
     padding-left: 1em;
-    padding-right: 1em;
 }
 
 .board-block {
-    flex: 0 1 calc(33.333% - 20px); /* 三個一排扣掉間距 */
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 20px;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0;
+    height: auto;
 }
 
 .board-item {
     width: 100%;
-    height: calc(43vh - 40px); /* 讓按鈕高度均勻分布 */
     border: 1px solid #ddd;
-    background: linear-gradient(145deg, #ffffff, #e6e6e6); /* 漸層背景 */
-    border-radius: 20px; /* 圓角 */
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    border-radius: 20px;
     padding: 20px;
     text-align: center;
-    display: flex; /* 文字垂直置中 */
+    display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.8rem;
     font-weight: bold;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    letter-spacing: 2px; 
+    letter-spacing: 2px;
     color: #333;
-    -webkit-touch-callout: none; /* 禁止 iOS 長按選單 */
-    -webkit-user-select: none;   /* 禁止選取文字 */
     user-select: none;
-    transition: transform 0.2s ease;
 }
 
 .board-item:hover {
-    /*transform: translateY(-5px) scale(1.03); /* 懸停浮動感 */
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
-    /*background: linear-gradient(145deg, #f1f1f1, #ffffff); /* 漸層反轉 */
     border-color: rgb(120, 249, 56);
+}
+
 }
 .sortable-ghost {
     opacity: 0.6;
@@ -101,45 +92,19 @@ body {
     animation: bounceFade 0.3s ease-out;
     box-shadow: 0 0 20px rgba(120, 249, 56, 0.7); /* 綠色光暈 */
 }
+/* 排列方式 (手機、平板、桌機) */
+.board-block.col-12 { flex: 0 1 100%; }
+.board-block.col-6 { flex: 0 1 calc(50% - 20px); }
+.board-block.col-4 { flex: 0 1 calc(33.333% - 20px); }
 
-@keyframes bounceFade {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(0.9);
-        opacity: 0.8;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
+/* 按鈕大小控制 (手機、平板、桌機) */
+.board-block.col-12 .board-item{
+    height: 6em; 
+}
+.board-block.col-6 .board-item{
+    height: 8em; 
+}
+.board-block.col-4 .board-item{
+    height: 8em; 
 }
 
-@keyframes vibrate {
-    0% { transform: scale(1.1) translateX(-1px); }
-    100% { transform: scale(1.1) translateX(1px); }
-}
-
-@media (max-width: 768px) {
-    .board-block {
-        flex: 0 1 calc(50% - 20px); /* 小螢幕變兩個一排 */
-    }
-
-    .board-item {
-        height: calc(40vh - 40px);
-        font-size: 1.6rem; /* 小螢幕字體縮小 */
-    }
-}
-
-@media (max-width: 576px) {
-    .board-block {
-        flex: 0 1 100%; /* 單排顯示 */
-    }
-
-    .board-item {
-        aspect-ratio: 4 / 1; /* 比例更細長 */
-        font-size: 1.4rem; /* 更小螢幕字體縮小 */
-    }
-}
