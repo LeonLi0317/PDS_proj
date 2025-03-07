@@ -42,8 +42,6 @@ export default new class Board {
     UpdateGrid() {
         let width = $(window).width();
         let height = $(window).height();
-        console.log('width',width);
-        console.log('height',height);
         $(".board-block").removeClass("col-12 col-6 col-4");
         $(".board-block").each((index, item) => {
             let totalItems = $(".board-block").length;
