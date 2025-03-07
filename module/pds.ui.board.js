@@ -25,14 +25,12 @@ export default new class Board {
     RenderMenu(data) {
         $('#board').html(data["mboard-list"]
             .map(item => `
-                <div class="col-md-4 board-block">
-                    <div class="card board-item" sort="${item.sort}" mSeq="${item.mSeq}">
-                        <div class="card-inner">
+                <div class="card col-md-4 board-block">
+                    <div class="card-inner board-item" sort="${item.sort}" mSeq="${item.mSeq}">
                             <div class="card-front">${item.name}</div>
                             <div class="card-back">
                                 ${this.RenderSubMenu(item.mSeq, data["subboard-list"])}
                             </div>
-                        </div>
                     </div>
                 </div>
             `).join(''));
