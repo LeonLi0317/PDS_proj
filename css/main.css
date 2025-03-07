@@ -22,6 +22,7 @@ body {
 }
 
 .board-title {
+    margin-top: 10px;
     background-color: #ff725e;
     text-align: center;
     padding: 20px;
@@ -36,7 +37,7 @@ body {
 }
 
 #board.row {
-    margin: 0;
+    margin: 0 0 10px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start; /* 🚨 這行是關鍵 */
