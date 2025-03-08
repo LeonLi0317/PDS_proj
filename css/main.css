@@ -71,7 +71,6 @@ body {
     color: #333;
     user-select: none;
     -webkit-user-select: none;
-    touch-action: none;
 }
 
 .board-item:hover {
