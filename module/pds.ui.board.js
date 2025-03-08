@@ -14,7 +14,7 @@ export default new class Board {
                 $(document.body).prepend(`
                     <div class="container">
                         <div class="board-title">${data["board-title"]}</div>
-                        <div class="row" id="board"></div>
+                        <div class="row g-4" id="board"></div>
                     </div>
                 `);
             }
@@ -57,6 +57,10 @@ export default new class Board {
             } else
             if(height==375 && width == 667){
                 // iphone se 橫式
+                $(item).addClass("col-6");
+            }
+            if(height==2622 && width == 1206){
+                // iphone 16 pro 橫式
                 $(item).addClass("col-6");
             } else
             if (width < 576) {
