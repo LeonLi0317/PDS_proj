@@ -30,16 +30,41 @@ export default new class Board {
     }
 }
 function RenderMenu(data, sortable) {
+    console.log(data);
     $('#board').html(data["mboard-list"]
         .map(item => `
             <div class="board-block">
-                <div class="board-item" mSeq="${item.mSeq}" sort="${item.sort}">${item.name}</div>
+                <div class="board-item" mSeq="${item.mSeq}" sort="${item.sort}"><span>${item.name}</span><div class="subboard-item"></div></div>
             </div>
-        `).join(''));
-    ResizeMenu(); // 重新渲染排版
+        `).join('')
+    );
+    $('.board-block .board-item').each(function(){
+        data['subboard-list'].map(item=>{
+            if($(this).attr('mseq')==item.mSeq){
+                $(this).parent().append(`<div></div>`)
+                console.log($(this).attr('mseq'))
+                return;
+            }
+        })
+    })
 
+    
+    ResizeMenu();
     if (sortable) InitSortable();
+    InitClickEvent(); // 加入點擊展開功能
 }
+
+function InitClickEvent() {
+    $(".board-item").on("click", function () {
+        let $this = $(this);
+        let isActive = $this.hasClass("active");
+        $(".board-item").removeClass("active");
+        if (!isActive) {
+            $this.addClass("active");
+        }
+    });
+}
+
 
 function ResizeMenu() {
     let width = $(window).width();
@@ -133,7 +158,7 @@ function InitSortable() {
             var result = {
                 "mboard-list": sortedData
             };
-            console.log(JSON.stringify(result));
+            console.log(result);
         }
     });
 }

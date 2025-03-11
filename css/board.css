@@ -1,10 +1,10 @@
 /* 背景 */
+/* 背景 */
 body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
     height: 100vh;
-    /*display: flex;*/
     justify-content: center;
     align-items: center;
     overflow: hidden;
@@ -62,6 +62,7 @@ body {
     padding: 20px;
     text-align: center;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 1.8em;
@@ -71,6 +72,59 @@ body {
     color: #333;
     user-select: none;
     -webkit-user-select: none;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+/* 點擊時文字上浮 */
+.board-item span{
+    transform: translateY(0em); /* 移動元素向上 */
+    transition: transform 0.5s ease; /* 添加 1 秒的過渡效果 */
+}
+
+/* 點擊時文字上浮 */
+.board-item.active span{
+    border-bottom: solid 2px;
+    border-color: #ff725e;
+    transform: translateY(-3em); /* 移動元素向上 */
+    transition: transform 0.5s ease; /* 添加 1 秒的過渡效果 */
+}
+/* Subboard 隱藏/顯示 */
+.subboard-list {
+    display: none;
+    width: 90%;
+    margin-top: 10px;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 10px;
+    overflow: hidden;
+}
+
+/* Subboard 內容 */
+.subboard-item {
+    top: 25%;
+    background-color: #ff725e;
+    position: absolute;
+    opacity: 0; /* 初始完全透明 */
+    width: 0%;
+    height: 0%;
+    background: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: width 0.5s ease, height 0.5s ease, opacity 1s ease; /* 為寬度和高度添加過渡效果 */
+}
+
+.board-item.active .subboard-item{
+    opacity: 1; /* 使元素逐漸顯示 */
+    width: 95%;
+    height: 70%;
 }
 
 .board-item:hover {
