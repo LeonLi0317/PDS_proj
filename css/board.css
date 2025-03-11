@@ -80,14 +80,14 @@ body {
 /* 點擊時文字上浮 */
 .board-item span{
     transform: translateY(0em); /* 移動元素向上 */
-    transition: transform 0.5s ease; /* 添加 1 秒的過渡效果 */
+    transition: transform 0.5s ease; /* 添加 0.5 秒的過渡效果 */
 }
 
 /* 點擊時文字上浮 */
 .board-item.active span{
     border-bottom: solid 2px;
     border-color: #ff725e;
-    transition: transform 0.5s ease; /* 添加 1 秒的過渡效果 */
+    transition: transform 0.5s ease; /* 添加 0.5 秒的過渡效果 */
 }
 /* Subboard 隱藏/顯示 */
 .subboard-list {
@@ -117,7 +117,7 @@ body {
     border-radius: 5px;
     font-size: 1em;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: opacity 1s ease; /* 為寬度和高度添加過渡效果 */
+    transition: opacity 0.5s ease; /* 為透明度添加過渡效果 */
     color: transparent;
     pointer-events: none; /* 讓它不接收點擊事件 */
 }
