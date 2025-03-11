@@ -41,12 +41,12 @@ function RenderMenu(data, sortable) {
     $('.board-block .board-item').each(function(){
         data['subboard-list'].map(item=>{
             if($(this).attr('mseq')==item.mSeq){
-                $(this).parent().append(`<div></div>`)
+                $(this).find('.subboard-item').append(`<div subSeq="${item.subSeq}" mSeq="${item.mSeq}" sort="${item.sort}"  >${item.name}</div>`)
                 console.log($(this).attr('mseq'))
                 return;
             }
         })
-    })
+    });
 
     
     ResizeMenu();
@@ -55,16 +55,18 @@ function RenderMenu(data, sortable) {
 }
 
 function InitClickEvent() {
+    $('.subboard-item').unbind();
     $(".board-item").on("click", function () {
         let $this = $(this);
         let isActive = $this.hasClass("active");
         $(".board-item").removeClass("active");
         if (!isActive) {
+            //$this.find('.subboard-item').prop('hidden','');
             $this.addClass("active");
-        }
+        };
     });
+    
 }
-
 
 function ResizeMenu() {
     let width = $(window).width();

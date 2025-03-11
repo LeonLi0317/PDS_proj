@@ -87,7 +87,6 @@ body {
 .board-item.active span{
     border-bottom: solid 2px;
     border-color: #ff725e;
-    transform: translateY(-3em); /* 移動元素向上 */
     transition: transform 0.5s ease; /* 添加 1 秒的過渡效果 */
 }
 /* Subboard 隱藏/顯示 */
@@ -110,22 +109,35 @@ body {
     background-color: #ff725e;
     position: absolute;
     opacity: 0; /* 初始完全透明 */
-    width: 0%;
-    height: 0%;
+    width: 95%;
+    height: 70%;
     background: white;
     padding: 10px;
     text-align: center;
     border-radius: 5px;
     font-size: 1em;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: width 0.5s ease, height 0.5s ease, opacity 1s ease; /* 為寬度和高度添加過渡效果 */
+    transition: opacity 1s ease; /* 為寬度和高度添加過渡效果 */
+    color: transparent;
+    pointer-events: none; /* 讓它不接收點擊事件 */
 }
 
 .board-item.active .subboard-item{
+    pointer-events: auto; /* 啟用點擊事件 */
+    overflow: auto;
     opacity: 1; /* 使元素逐漸顯示 */
-    width: 95%;
-    height: 70%;
 }
+
+.board-item.active .subboard-item div{
+    color: #333;
+}
+
+.subboard-item div:hover{
+    color: #333;
+    background-color: rgb(120, 207, 98);
+}
+
+
 
 .board-item:hover {
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
@@ -149,3 +161,7 @@ body {
 .board-block.col-12 .board-item { height: 6em; }
 .board-block.col-6 .board-item { height: 8em; }
 .board-block.col-4 .board-item { height: 8em; }
+
+
+.board-block.col-6 .board-item.active span,.board-block.col-4 .board-item.active span {     transform: translateY(-3em); /* 移動元素向上 */}
+.board-block.col-12 .board-item.active span {     transform: translateY(-2.4em); /* 移動元素向上 */}

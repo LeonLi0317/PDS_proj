@@ -62,6 +62,12 @@
             "name": "[Item 1]-03"
         },
         {
+            "sort": 4,
+            "mSeq":"01",
+            "subSeq":"04",
+            "name": "[Item 1]-04"
+        },
+        {
             "sort": 1,
             "mSeq":"02",
             "subSeq":"01",
