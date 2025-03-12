@@ -104,7 +104,7 @@ body {
     position: absolute;
     opacity: 0; /* 初始完全透明 */
     width: 95%;
-    height: 70%;
+    max-height: 70%;
     background-color: #ffe8e4; /* 調整為淡橘粉，讓畫面更協調 */
     border: 1px solid #ff9c85; /* 添加淡紅橘邊框，提高可視性 */
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* 提升立體感 */
@@ -116,6 +116,7 @@ body {
     transition: opacity var(--subbord-opacity-sec) ease 0s; /* 為透明度添加過渡效果 */
     color: #333;
     pointer-events: none; /* 讓它不接收點擊事件 */
+    overflow: hidden;
 }
 
 .board-item.active .subboard-item{
