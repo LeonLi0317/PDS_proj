@@ -128,7 +128,6 @@ function InitSortable() {
     new Sortable(document.getElementById('board'), {
         animation: 150,
         delay: 300,
-        delayOnTouchOnly: true,
         touchStartThreshold: 2,
         draggable: ".board-block",
         scroll: true,

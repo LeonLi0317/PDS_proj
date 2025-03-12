@@ -1,5 +1,4 @@
 /* 背景 */
-/* 背景 */
 body {
     background-color: #f4f4f4;
     margin: 0;
@@ -79,16 +78,11 @@ body {
 
 /* 點擊時文字上浮 */
 .board-item span{
+    width: 100%;
     transform: translateY(0em); /* 移動元素向上 */
-    transition: transform 0.5s ease; /* 添加 0.5 秒的過渡效果 */
+    transition: transform var(--span-move-sec) ease var(--item-delay-sec);
 }
 
-/* 點擊時文字上浮 */
-.board-item.active span{
-    border-bottom: solid 2px;
-    border-color: #ff725e;
-    transition: transform 0.5s ease; /* 添加 0.5 秒的過渡效果 */
-}
 /* Subboard 隱藏/顯示 */
 .subboard-list {
     display: none;
@@ -117,7 +111,7 @@ body {
     border-radius: 5px;
     font-size: 1em;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: opacity 0.5s ease; /* 為透明度添加過渡效果 */
+    transition: opacity var(--subbord-opacity-sec) ease 0s; /* 為透明度添加過渡效果 */
     color: transparent;
     pointer-events: none; /* 讓它不接收點擊事件 */
 }
@@ -126,13 +120,14 @@ body {
     pointer-events: auto; /* 啟用點擊事件 */
     overflow: auto;
     opacity: 1; /* 使元素逐漸顯示 */
+    transition: opacity var(--subbord-opacity-sec) ease var(--item-delay-sec); /* 為透明度添加過渡效果 */
 }
 
 .board-item.active .subboard-item div{
     color: #333;
 }
 
-.subboard-item div:hover{
+.subboard-item div:active{
     color: #333;
     background-color: rgb(120, 207, 98);
 }
@@ -163,5 +158,44 @@ body {
 .board-block.col-4 .board-item { height: 8em; }
 
 
-.board-block.col-6 .board-item.active span,.board-block.col-4 .board-item.active span {     transform: translateY(-3em); /* 移動元素向上 */}
-.board-block.col-12 .board-item.active span {     transform: translateY(-2.4em); /* 移動元素向上 */}
+.board-block.col-6 .board-item.active span,.board-block.col-4 .board-item.active span {
+    transform: translateY(-3em); /* 移動元素向上 */ 
+    transition:transform var(--span-move-sec) ease 0s ;
+    position: relative; 
+}
+.board-block.col-12 .board-item.active span {
+    transform: translateY(-2.4em);  /* 移動元素向上 */ 
+    transition:transform var(--span-move-sec) ease 0s ;
+    position: relative;
+}
+
+/* 初始狀態的底線 (寬度為 0，置中) */
+.board-item span::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0px;
+    width: 0;
+    height: 1.5px;
+    background-color: #ff725e;
+    transition: width var(--span-trans-sec) ease var(--span-delay-sec), left var(--span-trans-sec) ease var(--span-delay-sec);
+}
+
+/* 當 .board-item 進入 active 狀態時，讓底線展開 */
+.board-item.active span::after {
+    width: inherit;
+    left: 0;
+}
+
+:root {
+    /*按鈕標題"線"延伸動畫秒數*/
+    --span-trans-sec: 0.5s;
+    /*按鈕標題"線"延遲發動秒數*/
+    --span-delay-sec: 0.3s;
+    /*按鈕標題"文字"上移動畫秒數*/
+    --span-move-sec: 0.5s;
+    /*subboard-item div透明度動畫秒數*/
+    --subbord-opacity-sec: 0.5s;
+    /**board-item內的span移動.框的透明度 沒Active時的動畫delay時間*/
+    --item-delay-sec:0.3s
+}
