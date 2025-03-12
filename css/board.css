@@ -105,14 +105,16 @@ body {
     opacity: 0; /* 初始完全透明 */
     width: 95%;
     height: 70%;
-    background: white;
+    background-color: #ffe8e4; /* 調整為淡橘粉，讓畫面更協調 */
+    border: 1px solid #ff9c85; /* 添加淡紅橘邊框，提高可視性 */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* 提升立體感 */
     padding: 10px;
     text-align: center;
     border-radius: 5px;
-    font-size: 1em;
+    font-size: 0.85em;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     transition: opacity var(--subbord-opacity-sec) ease 0s; /* 為透明度添加過渡效果 */
-    color: transparent;
+    color: #333;
     pointer-events: none; /* 讓它不接收點擊事件 */
 }
 
@@ -123,12 +125,7 @@ body {
     transition: opacity var(--subbord-opacity-sec) ease var(--item-delay-sec); /* 為透明度添加過渡效果 */
 }
 
-.board-item.active .subboard-item div{
-    color: #333;
-}
-
 .subboard-item div:active{
-    color: #333;
     background-color: rgb(120, 207, 98);
 }
 
@@ -177,7 +174,7 @@ body {
     bottom: 0px;
     width: 0;
     height: 1.5px;
-    background-color: #ff725e;
+    background-color: #ff9c85;
     transition: width var(--span-trans-sec) ease var(--span-delay-sec), left var(--span-trans-sec) ease var(--span-delay-sec);
 }
 
