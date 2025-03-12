@@ -47,25 +47,31 @@
             "sort": 1,
             "mSeq":"01",
             "subSeq":"01",
-            "name": "[Item 1]-01"
+            "name": "PDSA0010 代碼設定"
         },
         {
             "sort": 2,
             "mSeq":"01",
             "subSeq":"02",
-            "name": "[Item 1]-02"
+            "name": "權限設定"
         },
         {
             "sort": 3,
             "mSeq":"01",
             "subSeq":"03",
-            "name": "[Item 1]-03"
+            "name": "庫位設定"
         },
         {
             "sort": 4,
             "mSeq":"01",
             "subSeq":"04",
-            "name": "[Item 1]-04"
+            "name": "balaba設定"
+        },
+        {
+            "sort": 5,
+            "mSeq":"01",
+            "subSeq":"05",
+            "name": "balaba設定2"
         },
         {
             "sort": 1,
