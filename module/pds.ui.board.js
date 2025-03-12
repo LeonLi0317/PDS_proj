@@ -135,7 +135,7 @@ function InitSortable() {
         scrollSensitivity: 100,
         scrollSpeed: 20,
         onStart: (evt) => {
-            if (evt.originalEvent) navigator.vibrate?.(50);
+            if (evt.originalEvent) navigator.vibrate(50);
         },
         onEnd: (evt) => {
             console.count("拖拉結束");
@@ -160,7 +160,7 @@ function InitSortable() {
             var result = {
                 "mboard-list": sortedData
             };
-            console.log(result);
+            console.log(JSON.stringify(result));
         }
     });
 }
