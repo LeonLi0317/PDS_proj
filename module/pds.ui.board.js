@@ -9,7 +9,7 @@ export default new class Board {
     buildMenu(object) {
         let sortable = object.sortable ?? true;
         if (object.data == null) {
-            $.get("/data/boarddata.json", (data) => {
+            $.get("data/boarddata.json", (data) => {
                 if (!$('.board_container').length) {
                     $(document.body).prepend(`
                     <div class="board_container">
