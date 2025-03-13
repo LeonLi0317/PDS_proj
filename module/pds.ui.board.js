@@ -39,6 +39,8 @@ function RenderMenu(data, sortable) {
     ResizeMenu(); // 重新渲染排版
 
     if (sortable) InitSortable();
+
+    InitClickEvent(); // 加入點擊展開功能
 }
 
 function ResizeMenu() {
@@ -95,6 +97,14 @@ function ResizeMenu() {
     });
 }
 
+function InitClickEvent() {
+    Swal.fire({
+        title: "The Internet?",
+        text: "That thing is still around?",
+        icon: "question"
+      });
+}
+
 function InitSortable() {
     console.log("sortable enable");
 
@@ -137,3 +147,5 @@ function InitSortable() {
         }
     });
 }
+
+$('')
