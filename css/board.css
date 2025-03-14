@@ -91,6 +91,10 @@ body {
     animation: bounceFade 0.3s ease-out;
 }
 
+#swal2-title{
+    font-size: 2.5em;
+}
+
 /* 排列方式 (手機、平板、桌機) */
 .board-block.col-12 .board-item { height: 6em; }
 .board-block.col-6 .board-item { height: 8em; }
