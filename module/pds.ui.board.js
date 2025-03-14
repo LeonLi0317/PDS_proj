@@ -40,7 +40,7 @@ function RenderMenu(data, sortable) {
 
     if (sortable) InitSortable();
 
-    InitClickEvent(); // 加入點擊展開功能
+    InitClickEvent(data); // 加入點擊功能
 }
 
 function ResizeMenu() {
@@ -97,12 +97,28 @@ function ResizeMenu() {
     });
 }
 
-function InitClickEvent() {
-    Swal.fire({
-        title: "The Internet?",
-        text: "That thing is still around?",
-        icon: "question"
-      });
+function InitClickEvent(data) {
+    $('.board-item').on('click',function(){
+        Swal.fire({
+            title: `${$(this).text()}`,
+            showConfirmButton: false,
+            showCancelButton: true,
+            html:`<table class="table table-light table-hover" id="sub-table" ></table>`
+        });
+        let subdlist = data["subboard-list"].filter(d=>d.mSeq==$(this).attr('mSeq'));
+        console.log(subdlist);
+        $('#sub-table').bootstrapTable({
+            data:subdlist,
+            columns:[
+                {
+                    title:'',
+                    field:'name'
+                }
+            ]
+        });
+        //隱藏表頭
+        $('#sub-table').find('thead').hide();
+    });
 }
 
 function InitSortable() {
@@ -147,5 +163,3 @@ function InitSortable() {
         }
     });
 }
-
-$('')
