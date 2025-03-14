@@ -103,13 +103,13 @@ function InitClickEvent(data) {
             title: `${$(this).text()}`,
             showConfirmButton: false,
             showCancelButton: true,
-            html:`<table id="sub-table" ></table>`
+            html:`<table id="sub-table" style="font-size:1.5em" ></table>`
         });
         let subdlist = data["subboard-list"].filter(d=>d.mSeq==$(this).attr('mSeq'));
         $('#sub-table').bootstrapTable({
             data:subdlist,
             cache: false,
-            classes:'table table-light table-hover',
+            classes:'table table-bordered table-hover',
             columns:[
                 /*{
                     formatter: function(value, row, index) {
