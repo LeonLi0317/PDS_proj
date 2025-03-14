@@ -11,10 +11,10 @@ export default new class Board {
         if (object.data == null) {
             $.get("data/boarddata.json", (data) => {
                 if (!$('.board_container').length) {
-                    $(document.body).prepend(`
+                    $('main').append(`
                     <div class="board_container">
-                        <div class="board-title">${data["board-title"]}</div>
-                        <div class="row g-4" id="board"></div>
+                        <div class="board-title" hidden>${data["board-title"]}</div>
+                        <div class="row" id="board"></div>
                     </div>
                 `);
                 }
@@ -103,7 +103,8 @@ function InitClickEvent(data) {
             title: `${$(this).text()}`,
             showConfirmButton: false,
             showCancelButton: true,
-            html:`<table id="sub-table" style="font-size:1.5em" ></table>`
+            html:`<table id="sub-table" style="font-size:1.5em" ></table>`,
+            cancelButtonText:`返回`
         });
         let subdlist = data["subboard-list"].filter(d=>d.mSeq==$(this).attr('mSeq'));
         $('#sub-table').bootstrapTable({
