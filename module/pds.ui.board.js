@@ -103,16 +103,23 @@ function InitClickEvent(data) {
             title: `${$(this).text()}`,
             showConfirmButton: false,
             showCancelButton: true,
-            html:`<table class="table table-light table-hover" id="sub-table" ></table>`
+            html:`<table id="sub-table" ></table>`
         });
         let subdlist = data["subboard-list"].filter(d=>d.mSeq==$(this).attr('mSeq'));
-        console.log(subdlist);
         $('#sub-table').bootstrapTable({
             data:subdlist,
+            cache: false,
+            classes:'table table-light table-hover',
             columns:[
+                /*{
+                    formatter: function(value, row, index) {
+                        return index + 1;  // 返回行号（1, 2, 3, ...）
+                    },
+                    width:30
+                },*/
                 {
                     title:'',
-                    field:'name'
+                    field:'name',
                 }
             ]
         });
